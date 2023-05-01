@@ -99,4 +99,15 @@ You have to run below command for passport installation
 - `database\seeds` - Contains the database seeder files
 - `routes` - It contains the apis and admin related routes file.
 
+##Note:
+In this example we are connecting to database when server runs.
+In this we have covered laravel most usable standard features
+1. Passport
+2. Queue / Job  (Just we have set code but for server need to install superviser)
+3. Middleware
+4. Service Base functionality
+5. Exception Handling using try catch
+6. Accessor and Mutator
+7. Role Permission Management
+
 
