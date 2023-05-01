@@ -61,7 +61,7 @@ In the .env file set your project name using the below variable.
 
     APP_NAME=Laravel
     
-In the .env file set app URL as epr your server
+In the .env file set app URL as per your server
     
     APP_URL=http://localhost
     
@@ -107,7 +107,7 @@ You have to run below command for passport installation
 - `app\Http\Requests` - Contains the files related to the add/edit form validations
 - `app\Http\Services` - Contains the services. In this we have defined each functionality services.
 - `app\Models` - Contains the all the modes files.
-- `resources` - Contains the all the balde(view) files and email template fiels
+- `resources` - Contains the all the blade(view) files and email template files
 - `config` - Contains all the application configuration files like database.
 - `database\migrations` - Contains the database migrations
 - `database\seeds` - Contains the database seeder files
@@ -118,7 +118,7 @@ You have to run below command for passport installation
 In this example we are connecting to database when server runs.
 In this we have covered laravel most usable standard features
 1. Passport
-2. Queue / Job  (Just we have set code but for server need to install superviser)
+2. Queue / Job  (Just we have set code but for server need to install supervisor)
 3. Middleware
 4. Service Base functionality
 5. Exception Handling using try catch
