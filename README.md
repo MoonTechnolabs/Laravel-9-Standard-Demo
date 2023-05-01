@@ -6,7 +6,6 @@ It is always good to follow standard format to maintain quality code while devel
 ## About Laravel
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-<p dir="auto">Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:</p>
 <ul dir="auto">
 <li><a href="https://laravel.com/docs/routing" rel="nofollow">Simple, fast routing engine</a>.</li>
 <li><a href="https://laravel.com/docs/container" rel="nofollow">Powerful dependency injection container</a>.</li>
