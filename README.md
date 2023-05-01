@@ -99,5 +99,4 @@ You have to run below command for passport installation
 - `database\seeds` - Contains the database seeder files
 - `routes` - It contains the apis and admin related routes file.
 
-- 
 
