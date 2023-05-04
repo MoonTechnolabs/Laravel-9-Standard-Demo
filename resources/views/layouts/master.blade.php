@@ -196,18 +196,10 @@ use App\Helpers\Helper;
                             data-i18n="Dashboards">Dashboard</span>
                     </a>
                 </li>
-                @if (auth()->user()->can('list-user'))
-                    <li
-                        class="nav-item {{ Route::is('admin.users.*') || Route::is('admin.roles.*') ? 'active' : '' }}">
-                        <a class="d-flex align-items-center" href="{{ route('admin.users.index') }}">
-                            <i data-feather='users'></i><span class="menu-title text-truncate"
-                                data-i18n="Users">Users</span>
-                        </a>
-                    </li>
-                @endif
-               
 
-                
+
+
+
             </ul>
         </div>
     </div>
@@ -297,7 +289,7 @@ use App\Helpers\Helper;
                     }
                 });
             });
-        
+
     </script>
     <!-- Time Xone manage End -->
 

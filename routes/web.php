@@ -72,21 +72,11 @@ Route::prefix('admin')->group(function () {
                 Route::get('myprofile', 'myprofile')->name('profile.index');
                 Route::post('update-profile/{user}', 'updateprofile')->name('profile.update');
                 Route::post('update-password/{user}', 'updatePassword')->name('password.update');
-                Route::resource('users', UserController::class);
-                Route::post('getusers', 'postUsersList')->name('getusers');
             });
         });
 
-        
 
-        Route::controller(RoleController::class)->group(function () {
-            Route::name('admin.')->group(function () {
-                Route::resource('roles', RoleController::class);
-                Route::post('getroles', 'postRolesList')->name('getroles');
-            });
-        });
 
-        
     });
-    
+
 });

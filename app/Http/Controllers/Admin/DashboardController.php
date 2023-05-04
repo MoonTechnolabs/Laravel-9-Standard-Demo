@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Http\Services\UserService;
 
 class DashboardController extends Controller
 {
@@ -18,9 +17,9 @@ class DashboardController extends Controller
     protected $singular_name;
 
 
-    public function __construct(UserService $userService)
+    public function __construct()
     {
-        $this->userService = $userService;
+
 
         $this->title_name = 'Dashboards';
         $this->singular_name = 'Dashboard';
@@ -33,9 +32,9 @@ class DashboardController extends Controller
 
     public function index()
     {
-        
-        $appUsersCount = $this->userService->getAppUserCount();
-        $adminUsersCount = $this->userService->getAdminUserCount();
+
+        $appUsersCount = 0;
+        $adminUsersCount = 0;
         $supportsCount = 0;
         return view('admin.' . $this->route . '.index',compact('appUsersCount','adminUsersCount','supportsCount'));
     }

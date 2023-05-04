@@ -28,7 +28,7 @@ Route::group(['prefix' => 'V1', 'namespace' => 'Api\V1'], function () {
 });
 
 Route::middleware(['auth:api'])->group(function () {
-    Route::group(['namespace' => 'Api\V1'], function () {        
+    Route::group(['namespace' => 'Api\V1'], function () {
         Route::group(['prefix' => 'V1'], function () {
             Route::post('deviceinfo', [AuthController::class, 'storeDeviceInfo'])->name('deviceinfo');  //Device Login details store
             Route::post('change-password', [UserController::class, 'storeChangePassword']);
@@ -38,10 +38,7 @@ Route::middleware(['auth:api'])->group(function () {
             Route::group(['prefix' => 'user'], function () {
                 Route::get('details', [UserController::class, 'getUserDetails']);
             });
-            /* Support */
-            Route::group(['prefix' => 'support'], function () {
-                Route::post('create', [SupportController::class, 'store']);
-            });
+
         });
     });
 });

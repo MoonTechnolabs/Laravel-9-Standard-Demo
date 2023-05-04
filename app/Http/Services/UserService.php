@@ -60,68 +60,6 @@ class UserService extends Controller
         return $data;
     }
 
-    public function getUserList($request)
-    {
-        $searchArray = array();
-        parse_str($request->fromValues, $searchArray);
-        $query = User::whereHas('roles', function ($user) use ($searchArray) {
-            if ($searchArray['role_id'] != '') {
-                $user->whereId($searchArray['role_id']);
-            }
-        })->with('roles');
-        if ($request->order == null) {
-            $query->orderBy('users.id', 'desc');
-        }
-        if ($searchArray['status'] == 1) {
-            $query->active();
-        } elseif ($searchArray['status'] == 0) {
-            $query->inactive();
-        }
-
-        /* Get Role Permissions */
-
-        return Datatables::of($query)
-            ->addColumn('role', function ($data) {
-                if ($data->roles->count() > 0) {
-                    return $data->getRoleNames()->implode(',');
-                }
-                return '';
-            })
-            ->addColumn('action', function ($data) {
-
-                $edit = route('admin.users.edit', [$data]);
-                $view = route('admin.users.show', [$data]);
-                $delete = $data->id;
-                $viewLink = '';
-                $editLink = '';
-                $deleteLink = '';
-                $user = Auth::user();
-
-                if ($user->can('list-user')) {
-                    $viewLink = $view;
-                }
-
-                if ($user->can('delete-user')) {
-                    $deleteLink = $delete;
-                }
-
-                if ($user->can('update-user')) {
-                    $editLink = $edit;
-                }
-
-                if ($data->roles[0]->id == config('const.roleSuperAdmin')) {
-                    $editLink = '';
-                    $deleteLink = '';
-                }
-                return Helper::Action($editLink, $deleteLink, $viewLink);
-            })
-            ->addColumn('status', function ($data) {
-                return Helper::status($data->status);
-            })
-            ->rawColumns(['action', 'status'])
-            ->make(true);
-    }
-
     public function destroy($user)
     {
         $deletedUser = $user->delete();
@@ -243,7 +181,7 @@ class UserService extends Controller
 
     public function getAdminUserCount()
     {
-        
+
         return User::whereHas('roles', function ($role) {
             $role->whereNotIn('id', [config('const.roleUser'), config('const.roleSuperAdmin')]);
         })->count();
